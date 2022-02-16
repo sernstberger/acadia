@@ -1,6 +1,7 @@
 import * as React from "react";
 import MediaCard from ".";
 import { Avatar, Stack, Typography } from "@mui/material";
+import { formatDistance } from "date-fns";
 
 interface YouTubeMediaCardProps {
   image: string;
@@ -37,7 +38,7 @@ const YouTubeMediaCard = ({
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {formatNumber(views)} views &bull;{" "}
-                {uploadDate.toLocaleDateString()}
+                {formatDistance(uploadDate, new Date(), { addSuffix: true })}
               </Typography>
             </div>
           </Stack>
