@@ -32,7 +32,7 @@ const EtsyMediaCard = ({
 }: EtsyMediaCardProps) => {
   return (
     <MediaCard
-      {...{ image }}
+      image={{ url: image, alt: title }}
       content={
         <div>
           <Typography component="h3">{title}</Typography>
