@@ -44,8 +44,8 @@ const App = () => {
           </Grid>
           <Grid item xs={12} sm={6}>
             <DoorDashMediaCard
-              image="https://upload.wikimedia.org/wikipedia/commons/1/1f/Acadia_National_Park%2C_Baker_Island_toward_Mount_Desert_Island.jpg"
-              title="Some video title goes here"
+              image="https://upload.wikimedia.org/wikipedia/commons/6/62/Barbieri_-_ViaSophia25668.jpg"
+              title="Some restaurant goes here"
               distance={{
                 number: 4.5,
                 unit: "mi",
