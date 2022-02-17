@@ -6,7 +6,7 @@ import ReactGA from "react-ga";
 import App from "./App";
 import theme from "./theme";
 
-ReactGA.initialize("G-EFRHGV9ET5");
+ReactGA.initialize("UA-220732746-1");
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 ReactDOM.render(
