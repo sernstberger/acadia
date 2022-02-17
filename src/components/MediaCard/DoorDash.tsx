@@ -1,7 +1,7 @@
 import * as React from "react";
 import MediaCard from ".";
 import { ToggleButton, Stack, Typography } from "@mui/material";
-import CheckIcon from "@mui/icons-material/Check";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 interface DoorDashMediaCardProps {
   image: string;
@@ -37,20 +37,20 @@ const DoorDashMediaCard = ({
       content={
         <div>
           <Stack direction="row" spacing={1}>
-            <div>
+            <Stack sx={{ flex: "1 0 auto" }}>
               <Typography component="h3">{title}</Typography>
               <Typography variant="body2" color="text.secondary">
                 {distance.number} {distance.unit} • {waitTime} min • {foo()}
               </Typography>
-            </div>
+            </Stack>
             <ToggleButton
-              value="check"
+              value="favorite"
               selected={isFavorite}
               onChange={() => {
                 setIsFavorite(!isFavorite);
               }}
             >
-              <CheckIcon />
+              {isFavorite ? <FavoriteIcon color="error" /> : <FavoriteIcon />}
             </ToggleButton>
           </Stack>
         </div>
