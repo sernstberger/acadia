@@ -1,7 +1,8 @@
 import * as React from "react";
-import MediaCard from ".";
 import { ToggleButton, Stack, Typography, IconButton } from "@mui/material";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
+import MediaCard from ".";
+import { formatMoney } from "../../utils";
 
 interface DoorDashMediaCardProps {
   image: string;
@@ -28,7 +29,7 @@ const DoorDashMediaCard = ({
     if (deliveryFee === 0) {
       return <span>Free delivery over $10</span>;
     } else {
-      return <span>${deliveryFee}</span>;
+      return <span>{formatMoney(deliveryFee)}</span>;
     }
   };
   return (
