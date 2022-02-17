@@ -1,6 +1,7 @@
 import * as React from "react";
 import MediaCard from ".";
 import { Chip, Rating, Stack, Typography } from "@mui/material";
+import { formatMoney } from "../../utils";
 
 interface EtsyMediaCardProps {
   image: string;
@@ -13,14 +14,6 @@ interface EtsyMediaCardProps {
   price: number;
   freeShipping?: boolean;
 }
-
-const formatMoney = (amount: number) => {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 0,
-  }).format(amount);
-};
 
 const EtsyMediaCard = ({
   image,
