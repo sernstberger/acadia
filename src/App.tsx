@@ -72,40 +72,6 @@ const App = () => {
               checkOut={new Date(2022, 1, 18)}
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <AirbnbMediaCard
-              image="https://upload.wikimedia.org/wikipedia/commons/6/62/Barbieri_-_ViaSophia25668.jpg"
-              title="Some house name goes here"
-              superhost
-              rating={{
-                average: 4.5,
-                count: 4567,
-              }}
-              propertyType="House"
-              city="Some City"
-              nightlyPrice={199.99}
-              weeklyDiscount={20}
-              checkIn={new Date(2022, 1, 11)}
-              checkOut={new Date(2022, 1, 18)}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <AirbnbMediaCard
-              image="https://upload.wikimedia.org/wikipedia/commons/6/62/Barbieri_-_ViaSophia25668.jpg"
-              title="Some house name goes here"
-              superhost
-              rating={{
-                average: 4.5,
-                count: 4567,
-              }}
-              propertyType="House"
-              city="Some City"
-              nightlyPrice={123}
-              weeklyDiscount={20}
-              checkIn={new Date(2022, 1, 11)}
-              checkOut={new Date(2022, 1, 18)}
-            />
-          </Grid>
         </Grid>
       </Box>
     </Container>
