@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Box, Card, Grid, Stack } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Card, Grid, Stack, Typography } from "@mui/material";
 import { MediaCardImageProps } from "../MediaCardImage";
 
 interface GalleryProps {
@@ -7,22 +7,28 @@ interface GalleryProps {
 }
 
 const Gallery = ({ images }: GalleryProps) => {
+  const [selectedImage, setSelectedImage] = useState<MediaCardImageProps>(
+    images[0]
+  );
   return (
     <Stack>
-      <Box
-        component="img"
-        src="https://upload.wikimedia.org/wikipedia/commons/6/62/Barbieri_-_ViaSophia25668.jpg"
-        alt="fooooo"
-        sx={{
-          maxWidth: "100%",
-        }}
-      />
+      <div>
+        <Box
+          component="img"
+          src={selectedImage.url}
+          alt={selectedImage.alt}
+          sx={{
+            maxWidth: "100%",
+          }}
+        />
+        <Typography>{selectedImage.alt}</Typography>
+      </div>
       {images && (
         <Grid container spacing={1} marginTop={1}>
           {images.map((image: MediaCardImageProps) => {
             return (
               <Grid item xs={2} key={image.url}>
-                <Card>
+                <Card onClick={() => setSelectedImage(image)}>
                   <Box
                     component="img"
                     src={image.url}
