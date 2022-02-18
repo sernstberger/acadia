@@ -11,11 +11,14 @@ const MediaCard = ({
   image: { url, height = 200, alt },
 }: MediaCardProps) => {
   return (
-    <Card>
-      <CardActionArea>
-        <CardMedia image={url} component="img" height={height} alt={alt} />
-        {content && <CardContent>{content}</CardContent>}
-      </CardActionArea>
+    <Card sx={{ position: "relative" }}>
+      <CardActionArea
+        // component={Link}
+        // to={href}
+        sx={{ height: "100%", width: "100%", position: "absolute" }}
+      />
+      <CardMedia image={url} component="img" height={height} alt={alt} />
+      {content && <CardContent>{content}</CardContent>}
     </Card>
   );
 };

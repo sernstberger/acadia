@@ -1,8 +1,8 @@
 import * as React from "react";
-import { ToggleButton, Stack, Typography, IconButton } from "@mui/material";
-import { Favorite, FavoriteBorder } from "@mui/icons-material";
+import { Stack, Typography } from "@mui/material";
 import MediaCard from ".";
 import { formatMoney } from "../../utils";
+import FavoriteButton from "../FavoriteButton";
 
 interface DoorDashMediaCardProps {
   image: string;
@@ -24,7 +24,6 @@ const DoorDashMediaCard = ({
   deliveryFee,
   favorite = false,
 }: DoorDashMediaCardProps) => {
-  const [isFavorite, setIsFavorite] = React.useState<boolean>(favorite);
   const DeliveryFee = () => {
     if (deliveryFee === 0) {
       return <span>Free delivery over $10</span>;
@@ -45,16 +44,7 @@ const DoorDashMediaCard = ({
                 <DeliveryFee />
               </Typography>
             </Stack>
-            <IconButton
-              component={ToggleButton}
-              value="favorite"
-              selected={isFavorite}
-              onChange={() => {
-                setIsFavorite(!isFavorite);
-              }}
-            >
-              {isFavorite ? <Favorite color="error" /> : <FavoriteBorder />}
-            </IconButton>
+            <FavoriteButton {...{ favorite }} />
           </Stack>
         </div>
       }

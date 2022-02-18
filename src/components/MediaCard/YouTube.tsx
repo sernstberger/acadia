@@ -2,6 +2,7 @@ import * as React from "react";
 import MediaCard from ".";
 import { Avatar, Stack, Typography } from "@mui/material";
 import { formatDistance } from "date-fns";
+import { formatNumber } from "../../utils";
 
 interface YouTubeMediaCardProps {
   image: string;
@@ -10,12 +11,6 @@ interface YouTubeMediaCardProps {
   views: number;
   uploadDate: Date;
 }
-
-const formatNumber = (number: number) => {
-  return new Intl.NumberFormat("en-US", {
-    notation: "compact",
-  }).format(number);
-};
 
 const YouTubeMediaCard = ({
   image,
@@ -37,7 +32,7 @@ const YouTubeMediaCard = ({
                 {channel.name}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {formatNumber(views)} views &bull;{" "}
+                {formatNumber(views, true)} views &bull;{" "}
                 {formatDistance(uploadDate, new Date(), { addSuffix: true })}
               </Typography>
             </div>
