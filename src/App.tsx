@@ -1,12 +1,10 @@
 import * as React from "react";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import EtsyMediaCard from "./components/MediaCard/Etsy";
 import YouTubeMediaCard from "./components/MediaCard/YouTube";
-import { Grid } from "@mui/material";
 import DoorDashMediaCard from "./components/MediaCard/DoorDash";
 import AirbnbMediaCard from "./components/MediaCard/Airbnb";
+import Gallery from "./components/Gallery";
 
 const App = () => {
   return (
@@ -16,6 +14,9 @@ const App = () => {
           Acadia
         </Typography>
         <Typography marginBottom={10}>an idyllic place</Typography>
+        <Typography variant="h3" component="h1">
+          MediaCard
+        </Typography>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <EtsyMediaCard
@@ -73,6 +74,16 @@ const App = () => {
             />
           </Grid>
         </Grid>
+        <Divider />
+        <Typography variant="h3" component="h1">
+          Gallery
+        </Typography>
+        <Gallery
+          images={[
+            "https://upload.wikimedia.org/wikipedia/commons/6/62/Barbieri_-_ViaSophia25668.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/1/1f/Acadia_National_Park%2C_Baker_Island_toward_Mount_Desert_Island.jpg",
+          ]}
+        />
       </Box>
     </Container>
   );
