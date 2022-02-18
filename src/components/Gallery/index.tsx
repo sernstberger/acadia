@@ -1,7 +1,12 @@
 import * as React from "react";
 import { Box, Card, Grid, Stack } from "@mui/material";
+import { MediaCardImageProps } from "../MediaCardImage";
 
-const Gallery = ({ images }: any) => {
+interface GalleryProps {
+  images: MediaCardImageProps[];
+}
+
+const Gallery = ({ images }: GalleryProps) => {
   return (
     <Stack>
       <Box
@@ -14,14 +19,14 @@ const Gallery = ({ images }: any) => {
       />
       {images && (
         <Grid container spacing={1} marginTop={1}>
-          {images.map((image: any) => {
+          {images.map((image: MediaCardImageProps) => {
             return (
-              <Grid item xs={2} key={image}>
+              <Grid item xs={2} key={image.url}>
                 <Card>
                   <Box
                     component="img"
-                    src={image}
-                    alt="asdf"
+                    src={image.url}
+                    alt={image.alt}
                     sx={{
                       maxWidth: "100%",
                     }}

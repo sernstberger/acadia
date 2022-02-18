@@ -80,8 +80,14 @@ const App = () => {
         </Typography>
         <Gallery
           images={[
-            "https://upload.wikimedia.org/wikipedia/commons/6/62/Barbieri_-_ViaSophia25668.jpg",
-            "https://upload.wikimedia.org/wikipedia/commons/1/1f/Acadia_National_Park%2C_Baker_Island_toward_Mount_Desert_Island.jpg",
+            {
+              url: "https://upload.wikimedia.org/wikipedia/commons/6/62/Barbieri_-_ViaSophia25668.jpg",
+              alt: "foo",
+            },
+            {
+              url: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Acadia_National_Park%2C_Baker_Island_toward_Mount_Desert_Island.jpg",
+              alt: "bar",
+            },
           ]}
         />
       </Box>
