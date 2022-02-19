@@ -16,24 +16,25 @@ const GalleryThumbnail = ({
   selected = false,
 }: GalleryThumbnailProps) => {
   return (
-    <Card
+    <Box
       onClick={() => setSelectedImageIndex(index)}
+      component="img"
+      src={`${image.url}?w=164&h=164&fit=crop&auto=format`}
+      srcSet={`${image.url}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+      alt={image.alt}
       sx={{
-        border: selected ? "2px solid red" : undefined,
+        display: "flex",
+        borderRadius: 2,
+        maxWidth: "100%",
+        borderWidth: selected ? 3 : 0,
+        borderStyle: "solid",
+        // border: selected ? "2px solid red" : undefined,
+        borderColor: selected ? "primary.main" : "red",
+        opacity: selected ? 1 : 0.85,
+        transition: "250ms all",
       }}
-    >
-      <Box
-        component="img"
-        src={`${image.url}?w=164&h=164&fit=crop&auto=format`}
-        srcSet={`${image.url}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-        alt={image.alt}
-        sx={{
-          display: "flex",
-          maxWidth: "100%",
-        }}
-        loading="lazy"
-      />
-    </Card>
+      loading="lazy"
+    />
   );
 };
 

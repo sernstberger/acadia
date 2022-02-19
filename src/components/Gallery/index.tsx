@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Fab, Stack, Typography } from "@mui/material";
+import { Box, Fab, Fade, Stack, Typography } from "@mui/material";
 import { MediaCardImageProps } from "../MediaCardImage";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import GalleryThumbnailList from "./GalleryThumbnailList";
@@ -16,21 +16,23 @@ const Gallery = ({ images }: GalleryProps) => {
   return (
     <Stack>
       <div style={{ position: "relative" }}>
-        <Box
-          component="img"
-          src={`${images[selectedImageIndex].url}?w=600&h=300&fit=crop&auto=format`}
-          srcSet={`${images[selectedImageIndex].url}?w=600&h=300&fit=crop&auto=format&dpr=2 2x`}
-          sx={{
-            width: "100%",
-          }}
-        />
-        <Typography>{images[selectedImageIndex].alt}</Typography>
+        <Fade in>
+          <Box
+            component="img"
+            src={`${images[selectedImageIndex].url}?w=600&h=300&fit=crop&auto=format`}
+            srcSet={`${images[selectedImageIndex].url}?w=600&h=300&fit=crop&auto=format&dpr=2 2x`}
+            sx={{
+              width: "100%",
+            }}
+          />
+        </Fade>
+        {/* <Typography>{images[selectedImageIndex].alt}</Typography> */}
         <Box
           sx={{
             position: "absolute",
             top: 0,
-            left: 0,
-            right: 0,
+            left: 10,
+            right: 10,
             bottom: 0,
             display: "flex",
             justifyContent: "space-between",
