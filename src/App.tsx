@@ -88,6 +88,18 @@ const App = () => {
               url: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Acadia_National_Park%2C_Baker_Island_toward_Mount_Desert_Island.jpg",
               alt: "bar",
             },
+            {
+              url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Kereru_perched_on_kowhai_at_Otari_Native_Botanic_Garden.jpg/1920px-Kereru_perched_on_kowhai_at_Otari_Native_Botanic_Garden.jpg",
+              alt: "baz",
+            },
+            {
+              url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Cooper_Kupp.jpg/1920px-Cooper_Kupp.jpg",
+              alt: "qux",
+            },
+            {
+              url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Anita_Kiki_Gbeho_of_the_UN_in_Somalia_discuss_AMISOM_mission_post_2021_%28cropped%29.jpg/1920px-Anita_Kiki_Gbeho_of_the_UN_in_Somalia_discuss_AMISOM_mission_post_2021_%28cropped%29.jpg",
+              alt: "quux",
+            },
           ]}
         />
       </Box>
