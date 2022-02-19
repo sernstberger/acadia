@@ -1,12 +1,10 @@
 import * as React from "react";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import EtsyMediaCard from "./components/MediaCard/Etsy";
 import YouTubeMediaCard from "./components/MediaCard/YouTube";
-import { Grid } from "@mui/material";
 import DoorDashMediaCard from "./components/MediaCard/DoorDash";
 import AirbnbMediaCard from "./components/MediaCard/Airbnb";
+import Gallery from "./components/Gallery";
 
 const App = () => {
   return (
@@ -16,6 +14,9 @@ const App = () => {
           Acadia
         </Typography>
         <Typography marginBottom={10}>an idyllic place</Typography>
+        <Typography variant="h3" component="h1">
+          MediaCard
+        </Typography>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <EtsyMediaCard
@@ -73,6 +74,62 @@ const App = () => {
             />
           </Grid>
         </Grid>
+        <Divider />
+        <Typography variant="h3" component="h1">
+          Gallery
+        </Typography>
+        <Gallery
+          images={[
+            {
+              url: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+              alt: "Breakfast",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+              alt: "Burger",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+              alt: "Camera",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+              alt: "Coffee",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
+              alt: "Hats",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
+              alt: "Honey",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
+              alt: "Basketball",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
+              alt: "Fern",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
+              alt: "Mushrooms",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
+              alt: "Tomato basil",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
+              alt: "Sea star",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
+              alt: "Bike",
+            },
+          ]}
+        />
       </Box>
     </Container>
   );

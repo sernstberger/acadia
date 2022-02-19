@@ -1,8 +1,9 @@
 import * as React from "react";
-import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
+import { Card, CardActionArea, CardContent } from "@mui/material";
+import MediaCardImage, { MediaCardImageProps } from "../MediaCardImage";
 
 interface MediaCardProps {
-  image: { url: string; alt: string; height?: number };
+  image: MediaCardImageProps;
   content?: React.ReactNode;
 }
 
@@ -17,7 +18,7 @@ const MediaCard = ({
         // to={href}
         sx={{ height: "100%", width: "100%", position: "absolute" }}
       />
-      <CardMedia image={url} component="img" height={height} alt={alt} />
+      <MediaCardImage {...{ url, height, alt }} />
       {content && <CardContent>{content}</CardContent>}
     </Card>
   );
