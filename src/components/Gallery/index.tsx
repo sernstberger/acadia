@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import { Box, Card, Fab, Grid, Stack, Typography } from "@mui/material";
+import { Box, Fab, Stack, Typography } from "@mui/material";
 import { MediaCardImageProps } from "../MediaCardImage";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import GalleryThumbnailList from "./GalleryThumbnailList";
 
 interface GalleryProps {
   images: MediaCardImageProps[];
 }
 
 const Gallery = ({ images }: GalleryProps) => {
-  // const [selectedImage, setSelectedImage] = useState<MediaCardImageProps>(
-  //   images[0]
-  // );
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const totalNumberOfImages = images.length;
   const maxIndex = totalNumberOfImages - 1;
@@ -20,12 +18,10 @@ const Gallery = ({ images }: GalleryProps) => {
       <div style={{ position: "relative" }}>
         <Box
           component="img"
-          // src={selectedImage.url}
-          // alt={selectedImage.alt}
-          src={images[selectedImageIndex].url}
-          alt={images[selectedImageIndex].alt}
+          src={`${images[selectedImageIndex].url}?w=600&h=300&fit=crop&auto=format`}
+          srcSet={`${images[selectedImageIndex].url}?w=600&h=300&fit=crop&auto=format&dpr=2 2x`}
           sx={{
-            maxWidth: "100%",
+            width: "100%",
           }}
         />
         <Typography>{images[selectedImageIndex].alt}</Typography>
@@ -60,33 +56,9 @@ const Gallery = ({ images }: GalleryProps) => {
         </Box>
       </div>
       {images && (
-        <Grid container spacing={1} marginTop={1}>
-          {images.map((image: MediaCardImageProps, index: number) => {
-            return (
-              <Grid item xs={2} key={image.url}>
-                <Card
-                  onClick={() => setSelectedImageIndex(index)}
-                  sx={{
-                    border:
-                      images[selectedImageIndex].url === image.url
-                        ? "2px solid red"
-                        : undefined,
-                  }}
-                >
-                  <Box
-                    component="img"
-                    src={image.url}
-                    alt={image.alt}
-                    sx={{
-                      display: "flex",
-                      maxWidth: "100%",
-                    }}
-                  />
-                </Card>
-              </Grid>
-            );
-          })}
-        </Grid>
+        <GalleryThumbnailList
+          {...{ images, setSelectedImageIndex, selectedImageIndex }}
+        />
       )}
     </Stack>
   );
