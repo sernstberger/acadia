@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Box, Card, Grid } from "@mui/material";
+import React from "react";
+import { Box } from "@mui/material";
 import { MediaCardImageProps } from "../MediaCardImage";
 
 interface GalleryThumbnailProps {
@@ -28,8 +28,7 @@ const GalleryThumbnail = ({
         maxWidth: "100%",
         borderWidth: selected ? 3 : 0,
         borderStyle: "solid",
-        // border: selected ? "2px solid red" : undefined,
-        borderColor: selected ? "primary.main" : "red",
+        borderColor: selected ? "primary.main" : "transparent",
         opacity: selected ? 1 : 0.85,
         transition: "250ms all",
       }}
