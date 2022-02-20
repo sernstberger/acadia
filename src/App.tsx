@@ -7,6 +7,7 @@ import AirbnbMediaCard from "./components/MediaCard/Airbnb";
 import Gallery from "./components/Gallery";
 import Search from "./components/Search";
 import Header from "./components/Header";
+import ProfileMenu from "./components/ProfileMenu";
 
 const App = () => {
   return (
@@ -137,6 +138,11 @@ const App = () => {
           Search
         </Typography>
         <Search />
+        <Divider sx={{ marginY: 2 }} />
+        <Typography variant="h3" component="h1">
+          Profile menu
+        </Typography>
+        <ProfileMenu />
         {/* <Divider sx={{ marginY: 2 }} />
         <Typography variant="h3" component="h1">
           Header
