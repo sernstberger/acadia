@@ -5,6 +5,8 @@ import YouTubeMediaCard from "./components/MediaCard/YouTube";
 import DoorDashMediaCard from "./components/MediaCard/DoorDash";
 import AirbnbMediaCard from "./components/MediaCard/Airbnb";
 import Gallery from "./components/Gallery";
+import Search from "./components/Search";
+import Header from "./components/Header";
 
 const App = () => {
   return (
@@ -130,6 +132,16 @@ const App = () => {
             },
           ]}
         />
+        <Divider sx={{ marginY: 2 }} />
+        <Typography variant="h3" component="h1">
+          Search
+        </Typography>
+        <Search />
+        {/* <Divider sx={{ marginY: 2 }} />
+        <Typography variant="h3" component="h1">
+          Header
+        </Typography>
+        <Header /> */}
       </Box>
     </Container>
   );
