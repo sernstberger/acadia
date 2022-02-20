@@ -137,10 +137,11 @@ const App = () => {
           Search
         </Typography>
         <Search />
+        {/* <Divider sx={{ marginY: 2 }} />
         <Typography variant="h3" component="h1">
           Header
         </Typography>
-        <Header />
+        <Header /> */}
       </Box>
     </Container>
   );
