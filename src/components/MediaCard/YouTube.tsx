@@ -22,6 +22,7 @@ const YouTubeMediaCard = ({
   return (
     <MediaCard
       image={{ url: image, alt: title }}
+      href="/"
       content={
         <div>
           <Stack direction="row" spacing={1}>

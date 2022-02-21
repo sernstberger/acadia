@@ -13,6 +13,7 @@ interface ProductCardProps {
   };
   price: number;
   freeShipping?: boolean;
+  href: string;
 }
 
 const ProductCard = ({
@@ -21,11 +22,13 @@ const ProductCard = ({
   seller,
   rating,
   price,
+  href,
   freeShipping = false,
 }: ProductCardProps) => {
   return (
     <MediaCard
       image={{ url: image, alt: title }}
+      {...{ href }}
       content={
         <div>
           <Typography component="h3">{title}</Typography>
