@@ -1,86 +1,19 @@
 import * as React from "react";
-import { Box, Container, Divider, Grid, Typography } from "@mui/material";
-import EtsyMediaCard from "../../components/MediaCard/Etsy";
-import YouTubeMediaCard from "../../components/MediaCard/YouTube";
-import DoorDashMediaCard from "../../components/MediaCard/DoorDash";
-import AirbnbMediaCard from "../../components/MediaCard/Airbnb";
+import { Box, Grid, Typography } from "@mui/material";
+import { Routes, Route, Outlet } from "react-router-dom";
 import Gallery from "../../components/Gallery";
-import Search from "../../components/Search";
 import Header from "../../components/Header";
-import ProfileMenu from "../../components/ProfileMenu";
+import Home from "./pages/Home";
+import Single from "./pages/Single";
 
 const Store = () => {
   return (
     <Box sx={{ my: 4 }}>
       <Header />
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <EtsyMediaCard
-            image="https://upload.wikimedia.org/wikipedia/commons/1/1f/Acadia_National_Park%2C_Baker_Island_toward_Mount_Desert_Island.jpg"
-            title="Some title goes here"
-            seller="Some seller goes here"
-            price={1234}
-            rating={{
-              average: 4.5,
-              count: 4567,
-            }}
-            freeShipping
-          />
-        </Grid>
-      </Grid>
-
-      <Gallery
-        images={[
-          {
-            url: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-            alt: "Breakfast",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-            alt: "Burger",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-            alt: "Camera",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-            alt: "Coffee",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
-            alt: "Hats",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
-            alt: "Honey",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
-            alt: "Basketball",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
-            alt: "Fern",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
-            alt: "Mushrooms",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
-            alt: "Tomato basil",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
-            alt: "Sea star",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
-            alt: "Bike",
-          },
-        ]}
-      />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path=":id" element={<Single />} />
+      </Routes>
     </Box>
   );
 };

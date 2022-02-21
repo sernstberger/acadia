@@ -158,7 +158,7 @@ const App = () => {
           </Container>
         }
       />
-      <Route path="store" element={<Store />} />
+      <Route path="store/*" element={<Store />} />
     </Routes>
   );
 };
