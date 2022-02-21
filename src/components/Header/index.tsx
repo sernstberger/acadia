@@ -10,6 +10,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Search from "../Search";
 import ProfileMenu from "../ProfileMenu";
+import NotificationsMenu from "../NotificationsMenu";
 
 export default function PrimarySearchAppBar() {
   return (
@@ -47,15 +48,7 @@ export default function PrimarySearchAppBar() {
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            <NotificationsMenu notifications={[]} />
           </Box>
           <ProfileMenu />
         </Toolbar>
