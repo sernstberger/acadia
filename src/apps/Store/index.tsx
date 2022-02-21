@@ -9,7 +9,7 @@ import Single from "./pages/Single";
 const Store = () => {
   return (
     <Box sx={{ my: 4 }}>
-      <Header />
+      <Header homeLink="/store" logo="Store" />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path=":id" element={<Single />} />

@@ -10,13 +10,24 @@ import MailIcon from "@mui/icons-material/Mail";
 import Search from "../Search";
 import ProfileMenu from "../ProfileMenu";
 import NotificationsMenu from "../NotificationsMenu";
+import { Link } from "react-router-dom";
+import { Stack } from "@mui/material";
 
-export default function PrimarySearchAppBar() {
+interface HeaderProps {
+  logo: React.ReactNode;
+  homeLink: string;
+}
+
+export default function Header({ logo, homeLink }: HeaderProps) {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          {/* <IconButton
+    <AppBar position="static">
+      <Stack
+        component={Toolbar}
+        sx={{ justifyContent: "space-between" }}
+        spacing={2}
+        direction="row"
+      >
+        {/* <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -25,42 +36,23 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton> */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            MUI
-          </Typography>
-          <Search />
+        <Link to={homeLink}>{logo}</Link>
+        <Search />
 
-          {/* <Box sx={{ flexGrow: 1 }} /> */}
-
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            {/* <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton> */}
-            <NotificationsMenu
-              notifications={[
-                { id: 1, text: "asdlkfj adlskfjsadf" },
-                { id: 2, text: "oidfadfkljafi q alkdfj lkdjfa" },
-                {
-                  id: 3,
-                  text: "ladsjfl kjasdflj afldfkjurhhfsn kjalfkj sdkhf",
-                },
-              ]}
-            />
-          </Box>
+        <Box>
+          <NotificationsMenu
+            notifications={[
+              { id: 1, text: "asdlkfj adlskfjsadf" },
+              { id: 2, text: "oidfadfkljafi q alkdfj lkdjfa" },
+              {
+                id: 3,
+                text: "ladsjfl kjasdflj afldfkjurhhfsn kjalfkj sdkhf",
+              },
+            ]}
+          />
           <ProfileMenu />
-        </Toolbar>
-      </AppBar>
-    </Box>
+        </Box>
+      </Stack>
+    </AppBar>
   );
 }

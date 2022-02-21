@@ -155,7 +155,7 @@ const App = () => {
               <Typography variant="h3" component="h1">
                 Header
               </Typography>
-              <Header />
+              <Header homeLink="/" logo={<Typography>Acadia UI</Typography>} />
             </Box>
           </Container>
         }
