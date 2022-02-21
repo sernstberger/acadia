@@ -29,6 +29,7 @@ const App = () => {
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
                   <ProductCard
+                    id="1"
                     image="https://upload.wikimedia.org/wikipedia/commons/1/1f/Acadia_National_Park%2C_Baker_Island_toward_Mount_Desert_Island.jpg"
                     href="/store"
                     title="Some title goes here"

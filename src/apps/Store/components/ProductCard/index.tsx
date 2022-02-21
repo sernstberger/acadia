@@ -2,19 +2,7 @@ import * as React from "react";
 import MediaCard from "../../../../components/MediaCard";
 import { Chip, Rating, Stack, Typography } from "@mui/material";
 import { formatMoney } from "../../../../utils";
-
-interface ProductCardProps {
-  image: string;
-  title: string;
-  seller: string;
-  rating?: {
-    average: number;
-    count: number;
-  };
-  price: number;
-  freeShipping?: boolean;
-  href: string;
-}
+import { ProductCardProps } from "../../types";
 
 const ProductCard = ({
   image,
