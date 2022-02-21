@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import { Routes, Route, Link } from "react-router-dom";
-import EtsyMediaCard from "./components/MediaCard/Etsy";
 import YouTubeMediaCard from "./components/MediaCard/YouTube";
 import DoorDashMediaCard from "./components/MediaCard/DoorDash";
 import AirbnbMediaCard from "./components/MediaCard/Airbnb";
@@ -10,6 +9,7 @@ import Search from "./components/Search";
 import Header from "./components/Header";
 import ProfileMenu from "./components/ProfileMenu";
 import Store from "./apps/Store";
+import ProductCard from "./apps/Store/components/ProductCard";
 
 const App = () => {
   return (
@@ -28,7 +28,7 @@ const App = () => {
               </Typography>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
-                  <EtsyMediaCard
+                  <ProductCard
                     image="https://upload.wikimedia.org/wikipedia/commons/1/1f/Acadia_National_Park%2C_Baker_Island_toward_Mount_Desert_Island.jpg"
                     title="Some title goes here"
                     seller="Some seller goes here"

@@ -1,9 +1,9 @@
 import * as React from "react";
-import MediaCard from ".";
+import MediaCard from "../../../../components/MediaCard";
 import { Chip, Rating, Stack, Typography } from "@mui/material";
-import { formatMoney } from "../../utils";
+import { formatMoney } from "../../../../utils";
 
-interface EtsyMediaCardProps {
+interface ProductCardProps {
   image: string;
   title: string;
   seller: string;
@@ -15,14 +15,14 @@ interface EtsyMediaCardProps {
   freeShipping?: boolean;
 }
 
-const EtsyMediaCard = ({
+const ProductCard = ({
   image,
   title,
   seller,
   rating,
   price,
   freeShipping = false,
-}: EtsyMediaCardProps) => {
+}: ProductCardProps) => {
   return (
     <MediaCard
       image={{ url: image, alt: title }}
@@ -56,4 +56,4 @@ const EtsyMediaCard = ({
   );
 };
 
-export default EtsyMediaCard;
+export default ProductCard;

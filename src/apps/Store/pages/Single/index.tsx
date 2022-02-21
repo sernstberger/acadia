@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Box, Grid, Typography } from "@mui/material";
-import { Routes, Route, Outlet } from "react-router-dom";
 import Gallery from "../../../../components/Gallery";
 
 const Single = () => {
@@ -58,6 +57,7 @@ const Single = () => {
               alt: "Bike",
             },
           ]}
+          showThumbnails
         />
       </Grid>
       <Grid item xs={12} sm={6}>
