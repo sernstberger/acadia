@@ -29,13 +29,13 @@ export default function NotificationsMenu({
     <>
       <IconButton
         size="large"
-        aria-label="show 17 new notifications"
+        aria-label={`show ${notifications.length} new notifications`}
         color="inherit"
         aria-controls={menuId}
         aria-haspopup="true"
         onClick={handleProfileMenuOpen}
       >
-        <Badge badgeContent={17} color="error">
+        <Badge badgeContent={notifications.length} color="error">
           <NotificationsIcon />
         </Badge>
       </IconButton>
@@ -55,8 +55,15 @@ export default function NotificationsMenu({
         open={isMenuOpen}
         onClose={handleMenuClose}
       >
-        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+        {notifications.length ? (
+          notifications.map((notification) => (
+            <MenuItem key={notification.id} onClick={handleMenuClose}>
+              {notification.text}
+            </MenuItem>
+          ))
+        ) : (
+          <MenuItem>Nothing</MenuItem>
+        )}
       </Menu>
     </>
   );

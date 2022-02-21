@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import Search from "../Search";
 import ProfileMenu from "../ProfileMenu";
 import NotificationsMenu from "../NotificationsMenu";
@@ -39,7 +38,7 @@ export default function PrimarySearchAppBar() {
           <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
+            {/* <IconButton
               size="large"
               aria-label="show 4 new mails"
               color="inherit"
@@ -47,8 +46,17 @@ export default function PrimarySearchAppBar() {
               <Badge badgeContent={4} color="error">
                 <MailIcon />
               </Badge>
-            </IconButton>
-            <NotificationsMenu notifications={[]} />
+            </IconButton> */}
+            <NotificationsMenu
+              notifications={[
+                { id: 1, text: "asdlkfj adlskfjsadf" },
+                { id: 2, text: "oidfadfkljafi q alkdfj lkdjfa" },
+                {
+                  id: 3,
+                  text: "ladsjfl kjasdflj afldfkjurhhfsn kjalfkj sdkhf",
+                },
+              ]}
+            />
           </Box>
           <ProfileMenu />
         </Toolbar>
