@@ -53,6 +53,7 @@ const AirbnbMediaCard = ({
   return (
     <MediaCard
       image={{ url: image, alt: title }}
+      href="/"
       content={
         <div>
           {superhost && (

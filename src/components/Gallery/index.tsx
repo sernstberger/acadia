@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { Box, Fab, Fade, Stack, Typography } from "@mui/material";
+import { Box, Fab, Fade, Stack } from "@mui/material";
 import { MediaCardImageProps } from "../MediaCardImage";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import GalleryThumbnailList from "./GalleryThumbnailList";
 
 interface GalleryProps {
   images: MediaCardImageProps[];
+  showThumbnails?: boolean;
 }
 
-const Gallery = ({ images }: GalleryProps) => {
+const Gallery = ({ images, showThumbnails = false }: GalleryProps) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const totalNumberOfImages = images.length;
   const maxIndex = totalNumberOfImages - 1;
@@ -57,7 +58,7 @@ const Gallery = ({ images }: GalleryProps) => {
           </Fab>
         </Box>
       </div>
-      {images && (
+      {showThumbnails && images && (
         <GalleryThumbnailList
           {...{ images, setSelectedImageIndex, selectedImageIndex }}
         />
