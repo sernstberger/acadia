@@ -18,6 +18,7 @@ const theme = createTheme({
     MuiAppBar: {
       defaultProps: {
         color: "default",
+        elevation: 0,
       },
     },
     MuiButtonBase: {
