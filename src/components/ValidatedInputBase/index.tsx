@@ -11,18 +11,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   padding: theme.spacing(1),
 }));
 
-interface ValidatedInputBaseProps extends InputBaseProps {}
+interface ValidatedInputBaseProps extends InputBaseProps {
+  fieldName: string;
+}
 
-const ValidatedInputBase = ({}: ValidatedInputBaseProps) => {
+const ValidatedInputBase = ({
+  fieldName,
+  ...rest
+}: ValidatedInputBaseProps) => {
   const { register } = useFormContext();
 
-  return (
-    <StyledInputBase
-      {...register("test")}
-      placeholder="Search…"
-      inputProps={{ "aria-label": "search" }}
-    />
-  );
+  return <StyledInputBase {...register(fieldName)} {...rest} />;
 };
 
 export default ValidatedInputBase;

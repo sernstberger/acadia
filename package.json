@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
+    "@hookform/devtools": "^4.0.2",
     "@mui/icons-material": "^5.4.2",
     "@mui/material": "latest",
     "@types/react": "latest",

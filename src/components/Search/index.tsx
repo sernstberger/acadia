@@ -1,11 +1,11 @@
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
-import { Button, Stack } from "@mui/material";
+import { Button } from "@mui/material";
 import ValidatedInputBase from "../ValidatedInputBase";
-import { useForm, FormProvider } from "react-hook-form";
+import ValidatedForm from "../ValidatedForm";
 
-const SearchWrapper = styled("form")(({ theme }) => ({
+const SearchWrapper = styled("div")(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   display: "flex",
@@ -13,13 +13,13 @@ const SearchWrapper = styled("form")(({ theme }) => ({
 }));
 
 const Search = () => {
-  const methods = useForm();
   const onSubmit = (data: any) => console.log(data);
 
   return (
-    <FormProvider {...methods}>
-      <SearchWrapper onSubmit={methods.handleSubmit(onSubmit)}>
+    <ValidatedForm>
+      <SearchWrapper>
         <ValidatedInputBase
+          fieldName="search"
           placeholder="Search…"
           inputProps={{ "aria-label": "search" }}
         />
@@ -31,7 +31,7 @@ const Search = () => {
           <SearchIcon />
         </Button>
       </SearchWrapper>
-    </FormProvider>
+    </ValidatedForm>
   );
 };
 
