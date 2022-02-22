@@ -13,6 +13,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-ga": "^3.3.0",
+    "react-hook-form": "^7.27.1",
     "react-router-dom": "6",
     "react-scripts": "latest",
     "typescript": "latest"

@@ -18,7 +18,7 @@ const App = () => {
         path="/"
         element={
           <Container maxWidth="md">
-            <Box sx={{ my: 4 }}>
+            <Box sx={{ marginBottom: 4 }}>
               <Typography variant="h4" component="h1">
                 Acadia
               </Typography>
