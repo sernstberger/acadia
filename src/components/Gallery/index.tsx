@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Fab, Fade, Stack } from "@mui/material";
 import { MediaCardImageProps } from "../MediaCardImage";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import GalleryThumbnailList from "./GalleryThumbnailList";
+import { useKeyPress } from "../../utils";
 
 interface GalleryProps {
   images: MediaCardImageProps[];
@@ -13,6 +14,21 @@ const Gallery = ({ images, showThumbnails = false }: GalleryProps) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const totalNumberOfImages = images.length;
   const maxIndex = totalNumberOfImages - 1;
+
+  const leftPress: boolean = useKeyPress("ArrowLeft");
+  const rightPress: boolean = useKeyPress("ArrowRight");
+
+  useEffect(() => {
+    if (leftPress && selectedImageIndex > 0) {
+      setSelectedImageIndex(selectedImageIndex - 1);
+    }
+  }, [leftPress]);
+
+  useEffect(() => {
+    if (rightPress && selectedImageIndex < maxIndex) {
+      setSelectedImageIndex(selectedImageIndex + 1);
+    }
+  }, [rightPress]);
 
   return (
     <Stack>
