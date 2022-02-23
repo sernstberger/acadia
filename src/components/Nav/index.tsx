@@ -28,7 +28,7 @@ export default function Nav({ items }: NavProps) {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Tabs value={currentTab}>
+      <Tabs value={currentTab} centered>
         {items.map((item: any) => {
           return (
             <Tab

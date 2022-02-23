@@ -4,7 +4,9 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Search from "../Search";
 import ProfileMenu from "../ProfileMenu";
-import NotificationsMenu from "../NotificationsMenu";
+import NotificationsMenu, {
+  NotificationsMenuProps,
+} from "../NotificationsMenu";
 import { Link } from "react-router-dom";
 import { Stack } from "@mui/material";
 import Nav from "../Nav";
@@ -14,9 +16,22 @@ interface HeaderProps {
   logo: React.ReactNode;
   homeLink: string;
   NavProps?: NavProps;
+  showSearch?: boolean;
+  showProfileMenu?: boolean;
+  NotificationsMenuProps?: NotificationsMenuProps;
+  actions?: React.ReactNode;
 }
 
-export default function Header({ logo, homeLink, NavProps }: HeaderProps) {
+export default function Header({
+  logo,
+  homeLink,
+  NavProps,
+  showSearch = false,
+  showProfileMenu = false,
+  NotificationsMenuProps,
+  actions = undefined,
+}: HeaderProps) {
+  console.log("!!!", actions);
   return (
     <AppBar position="static">
       <Stack
@@ -35,20 +50,14 @@ export default function Header({ logo, homeLink, NavProps }: HeaderProps) {
             <MenuIcon />
           </IconButton> */}
         <Link to={homeLink}>{logo}</Link>
-        <Search />
+        {showSearch && <Search />}
 
         <Box>
-          <NotificationsMenu
-            notifications={[
-              { id: 1, text: "asdlkfj adlskfjsadf" },
-              { id: 2, text: "oidfadfkljafi q alkdfj lkdjfa" },
-              {
-                id: 3,
-                text: "ladsjfl kjasdflj afldfkjurhhfsn kjalfkj sdkhf",
-              },
-            ]}
-          />
-          <ProfileMenu />
+          {actions && actions}
+          {NotificationsMenuProps && (
+            <NotificationsMenu {...NotificationsMenuProps} />
+          )}
+          {showProfileMenu && <ProfileMenu />}
         </Box>
       </Stack>
 

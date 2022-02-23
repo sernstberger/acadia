@@ -5,7 +5,7 @@ import Menu from "@mui/material/Menu";
 import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
-interface NotificationsMenuProps {
+export interface NotificationsMenuProps {
   notifications: any[];
 }
 
