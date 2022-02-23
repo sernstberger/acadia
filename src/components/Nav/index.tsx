@@ -24,7 +24,7 @@ export default function Nav({ items }: NavProps) {
     return item.value;
   });
   const routeMatch = useRouteMatch(values);
-  const currentTab = routeMatch?.pattern?.path;
+  const currentTab = routeMatch?.pattern?.path || false;
 
   return (
     <Box sx={{ width: "100%" }}>

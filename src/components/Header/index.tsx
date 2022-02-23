@@ -31,7 +31,6 @@ export default function Header({
   NotificationsMenuProps,
   actions = undefined,
 }: HeaderProps) {
-  console.log("!!!", actions);
   return (
     <AppBar position="static">
       <Stack
