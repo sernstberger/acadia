@@ -6,15 +6,17 @@ import Search from "../Search";
 import ProfileMenu from "../ProfileMenu";
 import NotificationsMenu from "../NotificationsMenu";
 import { Link } from "react-router-dom";
-import { Button, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import Nav from "../Nav";
+import { NavProps } from "../Nav/types";
 
 interface HeaderProps {
   logo: React.ReactNode;
   homeLink: string;
+  NavProps?: NavProps;
 }
 
-export default function Header({ logo, homeLink }: HeaderProps) {
+export default function Header({ logo, homeLink, NavProps }: HeaderProps) {
   return (
     <AppBar position="static">
       <Stack
@@ -50,19 +52,7 @@ export default function Header({ logo, homeLink }: HeaderProps) {
         </Box>
       </Stack>
 
-      <Nav items={["Clothes", "Toys"]} />
-      <Box
-        component="nav"
-        alignItems="center"
-        display="flex"
-        justifyContent="center"
-      >
-        <Button>Clothes</Button>
-        <Button>Toys</Button>
-        <Button>Groceries</Button>
-        <Button>Pets</Button>
-        <Button>Gift cards</Button>
-      </Box>
+      {NavProps && <Nav items={NavProps.items} />}
     </AppBar>
   );
 }
