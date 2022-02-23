@@ -7,13 +7,16 @@ import ProfileMenu from "../ProfileMenu";
 import NotificationsMenu from "../NotificationsMenu";
 import { Link } from "react-router-dom";
 import { Stack } from "@mui/material";
+import Nav from "../Nav";
+import { NavProps } from "../Nav/types";
 
 interface HeaderProps {
   logo: React.ReactNode;
   homeLink: string;
+  NavProps?: NavProps;
 }
 
-export default function Header({ logo, homeLink }: HeaderProps) {
+export default function Header({ logo, homeLink, NavProps }: HeaderProps) {
   return (
     <AppBar position="static">
       <Stack
@@ -48,6 +51,8 @@ export default function Header({ logo, homeLink }: HeaderProps) {
           <ProfileMenu />
         </Box>
       </Stack>
+
+      {NavProps && <Nav items={NavProps.items} />}
     </AppBar>
   );
 }

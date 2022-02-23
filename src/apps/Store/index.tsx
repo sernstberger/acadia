@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { Routes, Route, Outlet } from "react-router-dom";
 import Header from "../../components/Header";
 import Home from "./pages/Home";
@@ -8,7 +8,23 @@ import Single from "./pages/Single";
 const Store = () => {
   return (
     <Box sx={{ marginBottom: 4 }}>
-      <Header homeLink="/store" logo="Store" />
+      <Header
+        homeLink="/store"
+        logo="Store"
+        NavProps={{
+          items: [
+            { label: "Clothes", to: "clothes", value: "store/clothes" },
+            { label: "Toys", to: "toys", value: "store/toys" },
+            { label: "Books", to: "books", value: "store/books" },
+            {
+              label: "Electronics",
+              to: "electronics",
+              value: "store/electronics",
+            },
+            { label: "Other", to: "other", value: "store/other" },
+          ],
+        }}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path=":id" element={<Single />} />
