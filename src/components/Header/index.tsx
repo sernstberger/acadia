@@ -6,7 +6,8 @@ import Search from "../Search";
 import ProfileMenu from "../ProfileMenu";
 import NotificationsMenu from "../NotificationsMenu";
 import { Link } from "react-router-dom";
-import { Stack } from "@mui/material";
+import { Button, Stack } from "@mui/material";
+import Nav from "../Nav";
 
 interface HeaderProps {
   logo: React.ReactNode;
@@ -48,6 +49,20 @@ export default function Header({ logo, homeLink }: HeaderProps) {
           <ProfileMenu />
         </Box>
       </Stack>
+
+      <Nav items={["Clothes", "Toys"]} />
+      <Box
+        component="nav"
+        alignItems="center"
+        display="flex"
+        justifyContent="center"
+      >
+        <Button>Clothes</Button>
+        <Button>Toys</Button>
+        <Button>Groceries</Button>
+        <Button>Pets</Button>
+        <Button>Gift cards</Button>
+      </Box>
     </AppBar>
   );
 }
