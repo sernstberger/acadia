@@ -28,7 +28,13 @@ export default function Nav({ items }: NavProps) {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Tabs value={currentTab} centered>
+      <Tabs
+        value={currentTab}
+        centered
+        variant="scrollable"
+        scrollButtons
+        allowScrollButtonsMobile
+      >
         {items.map((item: any) => {
           return (
             <Tab
