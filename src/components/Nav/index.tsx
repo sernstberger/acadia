@@ -1,9 +1,7 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import { Link, matchPath, useLocation } from "react-router-dom";
 import { NavItemProps, NavProps } from "./types";
+import { Box, Tab, Tabs, useTheme, useMediaQuery } from "@mui/material";
 
 function useRouteMatch(patterns: readonly string[]) {
   const { pathname } = useLocation();
@@ -20,18 +18,20 @@ function useRouteMatch(patterns: readonly string[]) {
 }
 
 export default function Nav({ items }: NavProps) {
+  const theme = useTheme();
   const values = items.map((item: NavItemProps) => {
     return item.value;
   });
   const routeMatch = useRouteMatch(values);
   const currentTab = routeMatch?.pattern?.path || false;
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Box sx={{ width: "100%" }}>
       <Tabs
         value={currentTab}
-        centered
-        variant="scrollable"
+        centered={!isMobile}
+        variant={isMobile ? "scrollable" : "standard"}
         scrollButtons
         allowScrollButtonsMobile
       >
