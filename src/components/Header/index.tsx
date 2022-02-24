@@ -69,7 +69,7 @@ export default function Header({
               <Menu />
             </IconButton>
           )}
-          <Drawer foo="left" />
+          <Drawer anchor="left" />
           <Link to={homeLink}>{logo}</Link>
         </div>
         {showSearch && isDesktop && <Search />}
