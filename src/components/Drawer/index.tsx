@@ -1,22 +1,22 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import Button from "@mui/material/Button";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import { NavItemProps } from "../Nav/types";
+import { Link } from "react-router-dom";
 
 interface DrawerProps {
   anchor: "top" | "left" | "bottom" | "right";
   open: boolean;
   setOpen: (open: boolean) => void;
+  items: NavItemProps[];
 }
 
-export default function Drawer({ anchor, open, setOpen }: DrawerProps) {
+export default function Drawer({ anchor, open, setOpen, items }: DrawerProps) {
   const toggleDrawer =
     (_open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
@@ -45,23 +45,12 @@ export default function Drawer({ anchor, open, setOpen }: DrawerProps) {
         onKeyDown={toggleDrawer(false)}
       >
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
+          {items.map((item: NavItemProps) => (
+            <ListItem button key={item.value} component={Link} to={item.to}>
+              {/* <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon> */}
+              <ListItemText primary={item.label} />
             </ListItem>
           ))}
         </List>

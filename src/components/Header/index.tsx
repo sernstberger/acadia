@@ -59,7 +59,7 @@ export default function Header({
         direction="row"
       >
         <div>
-          {isMobile && showDrawerOnMobile && (
+          {isMobile && showDrawerOnMobile && NavProps && NavProps.items && (
             <>
               <IconButton
                 edge="start"
@@ -70,7 +70,11 @@ export default function Header({
               >
                 <Menu />
               </IconButton>
-              <Drawer {...{ open, setOpen }} anchor="left" />
+              <Drawer
+                {...{ open, setOpen }}
+                anchor="left"
+                items={NavProps.items}
+              />
             </>
           )}
           <Link to={homeLink}>{logo}</Link>
