@@ -40,35 +40,6 @@ const Store = () => {
         }}
       />
 
-      {/* <Header
-        homeLink="/store"
-        logo="Store"
-        showSearch
-        showProfileMenu
-        NavProps={{
-          items: [
-            { label: "Clothes", to: "clothes", value: "store/clothes" },
-            { label: "Toys", to: "toys", value: "store/toys" },
-            { label: "Books", to: "books", value: "store/books" },
-            {
-              label: "Electronics",
-              to: "electronics",
-              value: "store/electronics",
-            },
-            { label: "Other", to: "other", value: "store/other" },
-          ],
-        }}
-        NotificationsMenuProps={{
-          notifications: [
-            { id: 1, text: "asdlkfj adlskfjsadf" },
-            { id: 2, text: "oidfadfkljafi q alkdfj lkdjfa" },
-            {
-              id: 3,
-              text: "ladsjfl kjasdflj afldfkjurhhfsn kjalfkj sdkhf",
-            },
-          ],
-        }}
-      /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path=":id" element={<Single />} />

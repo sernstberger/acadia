@@ -17,6 +17,7 @@ import NotificationsMenu, {
 } from "../NotificationsMenu";
 import Nav from "../Nav";
 import { NavProps } from "../Nav/types";
+import Drawer from "../Drawer";
 
 interface HeaderProps {
   logo: React.ReactNode;
@@ -43,10 +44,11 @@ export default function Header({
 }: HeaderProps) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
   const hasNav = NavProps && NavProps.items && NavProps.items.length > 0;
   const showNavOnMobile = !showDrawerOnMobile;
   const [collapseSearch, setCollapseSearch] = React.useState(true);
+  const [open, setOpen] = React.useState<boolean>(false);
 
   return (
     <AppBar position="static">
@@ -57,16 +59,23 @@ export default function Header({
         direction="row"
       >
         <div>
-          {isMobile && showDrawerOnMobile && (
-            <IconButton
-              // size="large"
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              sx={{ mr: 2 }}
-            >
-              <Menu />
-            </IconButton>
+          {isMobile && showDrawerOnMobile && NavProps && NavProps.items && (
+            <>
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                sx={{ mr: 2 }}
+                onClick={() => setOpen(!open)}
+              >
+                <Menu />
+              </IconButton>
+              <Drawer
+                {...{ open, setOpen }}
+                anchor="left"
+                items={NavProps.items}
+              />
+            </>
           )}
           <Link to={homeLink}>{logo}</Link>
         </div>
