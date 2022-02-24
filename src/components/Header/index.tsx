@@ -48,6 +48,7 @@ export default function Header({
   const hasNav = NavProps && NavProps.items && NavProps.items.length > 0;
   const showNavOnMobile = !showDrawerOnMobile;
   const [collapseSearch, setCollapseSearch] = React.useState(true);
+  const [open, setOpen] = React.useState<boolean>(false);
 
   return (
     <AppBar position="static">
@@ -59,17 +60,19 @@ export default function Header({
       >
         <div>
           {isMobile && showDrawerOnMobile && (
-            <IconButton
-              // size="large"
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              sx={{ mr: 2 }}
-            >
-              <Menu />
-            </IconButton>
+            <>
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                sx={{ mr: 2 }}
+                onClick={() => setOpen(!open)}
+              >
+                <Menu />
+              </IconButton>
+              <Drawer {...{ open, setOpen }} anchor="left" />
+            </>
           )}
-          <Drawer anchor="left" />
           <Link to={homeLink}>{logo}</Link>
         </div>
         {showSearch && isDesktop && <Search />}

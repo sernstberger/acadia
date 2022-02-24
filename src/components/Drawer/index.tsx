@@ -10,16 +10,15 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 
-type Anchor = "top" | "left" | "bottom" | "right";
-interface Foo {
-  anchor: Anchor;
+interface DrawerProps {
+  anchor: "top" | "left" | "bottom" | "right";
+  open: boolean;
+  setOpen: (open: boolean) => void;
 }
 
-export default function Drawer({ anchor }: Foo) {
-  const [state, setState] = React.useState(false);
-
+export default function Drawer({ anchor, open, setOpen }: DrawerProps) {
   const toggleDrawer =
-    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+    (_open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
         event &&
         event.type === "keydown" &&
@@ -29,47 +28,44 @@ export default function Drawer({ anchor }: Foo) {
         return;
       }
 
-      setState(open);
+      setOpen(_open);
     };
 
   return (
-    <div>
-      <Button onClick={toggleDrawer(true)}>menu</Button>
-      <SwipeableDrawer
-        anchor={anchor}
-        open={state}
-        onClose={toggleDrawer(false)}
-        onOpen={toggleDrawer(true)}
+    <SwipeableDrawer
+      anchor={anchor}
+      open={open}
+      onClose={toggleDrawer(false)}
+      onOpen={toggleDrawer(true)}
+    >
+      <Box
+        sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+        role="presentation"
+        onClick={toggleDrawer(false)}
+        onKeyDown={toggleDrawer(false)}
       >
-        <Box
-          sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
-          role="presentation"
-          onClick={toggleDrawer(false)}
-          onKeyDown={toggleDrawer(false)}
-        >
-          <List>
-            {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-          <List>
-            {["All mail", "Trash", "Spam"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </SwipeableDrawer>
-    </div>
+        <List>
+          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          {["All mail", "Trash", "Spam"].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    </SwipeableDrawer>
   );
 }
