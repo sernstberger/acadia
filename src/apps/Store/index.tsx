@@ -12,6 +12,7 @@ const Store = () => {
         homeLink="/store"
         logo="Store"
         showSearch
+        collapseSearchOnMobile
         showProfileMenu
         showDrawerOnMobile
         NavProps={{

@@ -9,7 +9,7 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { Menu } from "@mui/icons-material";
+import { Cancel, Menu, Search as SearchIcon } from "@mui/icons-material";
 import Search from "../Search";
 import ProfileMenu from "../ProfileMenu";
 import NotificationsMenu, {
@@ -27,6 +27,7 @@ interface HeaderProps {
   NotificationsMenuProps?: NotificationsMenuProps;
   actions?: React.ReactNode;
   showDrawerOnMobile?: boolean;
+  collapseSearchOnMobile?: boolean;
 }
 
 export default function Header({
@@ -38,13 +39,15 @@ export default function Header({
   NotificationsMenuProps,
   actions = undefined,
   showDrawerOnMobile = false,
+  collapseSearchOnMobile = false,
 }: HeaderProps) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const hasNav = NavProps && NavProps.items && NavProps.items.length > 0;
   const showNavOnMobile = !showDrawerOnMobile;
-  console.log("!!!", { hasNav, showDrawerOnMobile, isDesktop });
+  const [collapseSearch, setCollapseSearch] = React.useState(true);
+
   return (
     <AppBar position="static">
       <Stack
@@ -67,9 +70,24 @@ export default function Header({
           )}
           <Link to={homeLink}>{logo}</Link>
         </div>
-        {showSearch && <Search />}
+        {showSearch && isDesktop && <Search />}
 
         <Box>
+          {showSearch &&
+            isMobile &&
+            collapseSearchOnMobile &&
+            (!collapseSearch ? (
+              <Stack direction="row">
+                <Search />
+                <IconButton onClick={() => setCollapseSearch(true)}>
+                  <Cancel />
+                </IconButton>
+              </Stack>
+            ) : (
+              <IconButton onClick={() => setCollapseSearch(false)}>
+                <SearchIcon />
+              </IconButton>
+            ))}
           {actions && actions}
           {NotificationsMenuProps && (
             <NotificationsMenu {...NotificationsMenuProps} />
