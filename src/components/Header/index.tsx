@@ -17,6 +17,7 @@ import NotificationsMenu, {
 } from "../NotificationsMenu";
 import Nav from "../Nav";
 import { NavProps } from "../Nav/types";
+import Drawer from "../Drawer";
 
 interface HeaderProps {
   logo: React.ReactNode;
@@ -68,6 +69,7 @@ export default function Header({
               <Menu />
             </IconButton>
           )}
+          <Drawer foo="left" />
           <Link to={homeLink}>{logo}</Link>
         </div>
         {showSearch && isDesktop && <Search />}
