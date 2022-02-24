@@ -44,7 +44,7 @@ export default function Header({
 }: HeaderProps) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
   const hasNav = NavProps && NavProps.items && NavProps.items.length > 0;
   const showNavOnMobile = !showDrawerOnMobile;
   const [collapseSearch, setCollapseSearch] = React.useState(true);
