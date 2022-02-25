@@ -1,6 +1,12 @@
+export interface ImageProps {
+  url: string;
+  alt: string;
+}
+
 export interface ProductProps {
   id: string;
-  image: string;
+  description: string;
+  images: ImageProps[];
   title: string;
   seller: string;
   rating?: {

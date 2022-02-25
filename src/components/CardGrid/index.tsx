@@ -30,7 +30,7 @@ const CardGrid = ({
       <Grid container spacing={3}>
         {shownItems.map((item: any) => {
           return (
-            <Grid item xs={12} sm={6} md={3} key={item.title}>
+            <Grid item xs={12} sm={6} md={3} key={item.id}>
               <CardComponent {...item} href={`/store/${item.id}`} />
             </Grid>
           );

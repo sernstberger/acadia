@@ -14,6 +14,17 @@ const theme = createTheme({
     },
   },
 
+  typography: {
+    h1: {
+      fontSize: "2.5rem",
+      fontWeight: "700",
+    },
+    h2: {
+      fontSize: "2rem",
+      fontWeight: "700",
+    },
+  },
+
   components: {
     MuiAppBar: {
       defaultProps: {

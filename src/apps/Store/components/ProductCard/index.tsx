@@ -5,7 +5,7 @@ import { formatMoney } from "../../../../utils";
 import { ProductCardProps } from "../../types";
 
 const ProductCard = ({
-  image,
+  images,
   title,
   seller,
   rating,
@@ -15,7 +15,7 @@ const ProductCard = ({
 }: ProductCardProps) => {
   return (
     <MediaCard
-      image={{ url: image, alt: title }}
+      image={{ url: images[0].url, alt: images[0].alt }}
       {...{ href }}
       content={
         <div>

@@ -51,7 +51,13 @@ const App = () => {
                   <Grid item xs={12} sm={6}>
                     <ProductCard
                       id="1"
-                      image="https://upload.wikimedia.org/wikipedia/commons/1/1f/Acadia_National_Park%2C_Baker_Island_toward_Mount_Desert_Island.jpg"
+                      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae sagittis purus. Suspendisse ac feugiat nisi. Suspendisse nibh mauris, volutpat at turpis ut, imperdiet volutpat arcu. Quisque tempor mi vel purus volutpat, id aliquam nisl dapibus. Fusce augue arcu, molestie elementum sapien eu, maximus mattis odio. Aenean nec ligula non ante venenatis congue. In eget pretium massa, ut efficitur enim. Phasellus posuere nibh ac lectus convallis tincidunt vel eu justo. Donec fermentum tortor in elit feugiat, et congue nunc pellentesque. Nullam sed dui aliquam, malesuada augue a, ornare ante. Phasellus eget varius turpis. Integer maximus molestie consectetur. Nulla eget magna et enim posuere imperdiet. Curabitur id varius diam. Duis ipsum eros, eleifend in leo at, vehicula hendrerit augue. Curabitur auctor risus purus, in accumsan mi tempus eget. Pellentesque placerat ac quam quis tincidunt. Maecenas aliquam enim non arcu pretium, vitae ullamcorper massa sollicitudin. Donec ultricies orci ut urna condimentum, non semper mi gravida. Vestibulum rutrum consequat tellus eu viverra. Donec auctor, risus vitae euismod semper, nisi magna dictum libero, vitae pulvinar magna arcu sed arcu. Quisque at neque lacinia, semper nisl id, lobortis nibh. Fusce in lectus lacus. Quisque facilisis dapibus vestibulum. In varius scelerisque ligula, sed blandit eros convallis vel."
+                      images={[
+                        {
+                          url: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Acadia_National_Park%2C_Baker_Island_toward_Mount_Desert_Island.jpg",
+                          alt: "foo",
+                        },
+                      ]}
                       href="/store"
                       title="Some title goes here"
                       seller="Some seller goes here"
