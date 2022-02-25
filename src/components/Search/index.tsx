@@ -12,7 +12,9 @@ const SearchWrapper = styled("div")(({ theme }) => ({
   flex: "auto",
 }));
 
-const Search = () => {
+export interface SearchProps {}
+
+const Search = ({}: SearchProps) => {
   const onSubmit = (data: any) => console.log(data);
 
   return (
