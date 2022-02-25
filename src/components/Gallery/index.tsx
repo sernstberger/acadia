@@ -30,6 +30,8 @@ const Gallery = ({ images, showThumbnails = false }: GalleryProps) => {
     }
   }, [rightPress]);
 
+  const hasMultipleImages = totalNumberOfImages > 1;
+
   return (
     <Stack>
       <div style={{ position: "relative" }}>
@@ -56,25 +58,29 @@ const Gallery = ({ images, showThumbnails = false }: GalleryProps) => {
             alignItems: "center",
           }}
         >
-          <Fab
-            disabled={selectedImageIndex === 0}
-            onClick={() =>
-              setSelectedImageIndex((prevState: number) => prevState - 1)
-            }
-          >
-            <ChevronLeft />
-          </Fab>
-          <Fab
-            disabled={selectedImageIndex >= maxIndex}
-            onClick={() =>
-              setSelectedImageIndex((prevState: number) => prevState + 1)
-            }
-          >
-            <ChevronRight />
-          </Fab>
+          {hasMultipleImages && (
+            <>
+              <Fab
+                disabled={selectedImageIndex === 0}
+                onClick={() =>
+                  setSelectedImageIndex((prevState: number) => prevState - 1)
+                }
+              >
+                <ChevronLeft />
+              </Fab>
+              <Fab
+                disabled={selectedImageIndex >= maxIndex}
+                onClick={() =>
+                  setSelectedImageIndex((prevState: number) => prevState + 1)
+                }
+              >
+                <ChevronRight />
+              </Fab>
+            </>
+          )}
         </Box>
       </div>
-      {showThumbnails && images && (
+      {showThumbnails && images && hasMultipleImages && (
         <GalleryThumbnailList
           {...{ images, setSelectedImageIndex, selectedImageIndex }}
         />
