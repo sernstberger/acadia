@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import GalleryThumbnailList from "./GalleryThumbnailList";
 import { useKeyPress } from "../../utils";
 
-interface GalleryProps {
+export interface GalleryProps {
   images: MediaCardImageProps[];
   showThumbnails?: boolean;
 }
