@@ -1,15 +1,24 @@
 import Container from '@mui/material/Container';
-import { PageHeader, ProductCard } from '@acadia/ui';
+import { PageHeader, ProductGrid } from '@acadia/ui';
 
 export const App = () => {
   return (
     <>
       <PageHeader brand="Store" />
-      <Container maxWidth="sm">
-        <ProductCard
-          title="Lizard"
-          description="Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"
-          price={100}
+      <Container maxWidth="md" sx={{ padding: 2 }}>
+        <ProductGrid
+          products={[
+            { id: '1' },
+            { id: '2' },
+            { id: '3' },
+            { id: '4' },
+            { id: '5' },
+            { id: '6' },
+            { id: '7' },
+            { id: '8' },
+            { id: '9' },
+            { id: '10' },
+          ]}
         />
       </Container>
     </>

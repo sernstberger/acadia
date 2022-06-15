@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import CartButton from './cart-button';
+import ProductGrid from './product-grid';
 
-describe('CartButton', () => {
+describe('ProductGrid', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<CartButton />);
+    const { baseElement } = render(<ProductGrid />);
     expect(baseElement).toBeTruthy();
   });
 });
