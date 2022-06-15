@@ -1,31 +1,47 @@
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import React from 'react';
 
 export interface ProductCardProps {
   title: React.ReactNode;
+  description?: React.ReactNode;
+  price: number;
 }
 
-export function ProductCard({ title }: ProductCardProps) {
+export function ProductCard({
+  title,
+  description = null,
+  price,
+}: ProductCardProps) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card
+      elevation={0}
+      sx={{
+        border: (theme) => `2px solid ${theme.palette.common.black}`,
+        borderRadius: 0,
+      }}
+    >
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          {description && (
+            <Typography variant="body2" color="text.secondary">
+              {description}
+            </Typography>
+          )}
+          <Typography gutterBottom variant="h5" component="div">
+            {price}
           </Typography>
         </CardContent>
       </CardActionArea>
