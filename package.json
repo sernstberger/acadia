@@ -1,53 +1,55 @@
 {
-  "name": "create-react-app-with-typescript",
-  "version": "5.0.0",
+  "name": "acadia",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test"
+  },
   "private": true,
   "dependencies": {
-    "@emotion/react": "latest",
-    "@emotion/styled": "latest",
-    "@hookform/devtools": "^4.0.2",
-    "@mui/icons-material": "^5.4.2",
-    "@mui/material": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "date-fns": "^2.28.0",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-ga": "^3.3.0",
-    "react-hook-form": "^7.27.1",
-    "react-router-dom": "6",
-    "react-scripts": "latest",
-    "typescript": "latest"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
-    "eject": "react-scripts eject"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@emotion/react": "11.9.3",
+    "@emotion/styled": "11.9.3",
+    "core-js": "^3.6.5",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "regenerator-runtime": "0.13.7",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.4.18",
-    "@storybook/addon-essentials": "^6.4.14",
-    "@storybook/addon-links": "^6.4.18",
-    "@storybook/node-logger": "^6.4.14",
-    "@storybook/preset-create-react-app": "^4.0.0",
-    "@storybook/react": "^6.4.14",
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@types/jest": "^27.4.0"
+    "@emotion/babel-plugin": "11.9.2",
+    "@nrwl/cli": "14.3.2",
+    "@nrwl/cypress": "14.3.2",
+    "@nrwl/eslint-plugin-nx": "14.3.2",
+    "@nrwl/jest": "14.3.2",
+    "@nrwl/linter": "14.3.2",
+    "@nrwl/nx-cloud": "latest",
+    "@nrwl/react": "14.3.2",
+    "@nrwl/web": "14.3.2",
+    "@nrwl/workspace": "14.3.2",
+    "@testing-library/react": "13.3.0",
+    "@types/jest": "27.4.1",
+    "@types/node": "16.11.7",
+    "@types/react": "18.0.12",
+    "@types/react-dom": "18.0.5",
+    "@typescript-eslint/eslint-plugin": "~5.24.0",
+    "@typescript-eslint/parser": "~5.24.0",
+    "babel-jest": "27.5.1",
+    "cypress": "^9.1.0",
+    "eslint": "~8.15.0",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-react": "7.30.0",
+    "eslint-plugin-react-hooks": "4.5.0",
+    "jest": "27.5.1",
+    "nx": "14.3.2",
+    "prettier": "^2.6.2",
+    "react-test-renderer": "18.1.0",
+    "ts-jest": "27.1.4",
+    "ts-node": "~10.8.0",
+    "typescript": "~4.7.2"
   }
 }
