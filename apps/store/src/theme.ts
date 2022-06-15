@@ -14,6 +14,38 @@ const theme = createTheme({
       main: red.A400,
     },
   },
+
+  components: {
+    MuiAppBar: {
+      defaultProps: {
+        color: 'inherit',
+        elevation: 0,
+      },
+    },
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true, // No more ripple, on the whole application 💣!
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+      },
+    },
+    MuiCard: {
+      defaultProps: {
+        elevation: 0,
+      },
+    },
+    // MuiCardContent: {
+    //   styleOverrides: {
+    //     root: {
+    //       paddingLeft: 0,
+    //       paddingRight: 0,
+    //     },
+    //   },
+    // },
+  },
 });
 
 export default theme;
