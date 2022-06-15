@@ -4,7 +4,7 @@ import { PageHeader, ProductCard } from '@acadia/ui';
 export const App = () => {
   return (
     <>
-      <PageHeader title="News" />
+      <PageHeader brand="Store" />
       <Container maxWidth="sm">
         <ProductCard
           title="Lizard"

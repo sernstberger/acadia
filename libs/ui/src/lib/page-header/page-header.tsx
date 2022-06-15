@@ -1,16 +1,14 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import Search from '../search/search';
+import { CartButton } from '../cart-button/cart-button';
 
 export interface PageHeaderProps {
-  title: string;
+  brand: string;
 }
 
-export function PageHeader({ title }: PageHeaderProps) {
+export function PageHeader({ brand }: PageHeaderProps) {
   return (
     <AppBar
       position="static"
@@ -18,7 +16,7 @@ export function PageHeader({ title }: PageHeaderProps) {
         borderBottom: (theme) => `2px solid ${theme.palette.common.black}`,
       }}
     >
-      <Toolbar>
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
         {/* <IconButton
           size="large"
           edge="start"
@@ -28,10 +26,11 @@ export function PageHeader({ title }: PageHeaderProps) {
         >
           <MenuIcon />
         </IconButton> */}
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          {title}
+        <Typography variant="h6" component="div">
+          {brand}
         </Typography>
-        {/* <Button color="inherit">Login</Button> */}
+        <Search />
+        <CartButton />
       </Toolbar>
     </AppBar>
   );

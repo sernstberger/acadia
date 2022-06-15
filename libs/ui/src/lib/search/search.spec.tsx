@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import PageHeader from './page-header';
+import ProductCard from './product-card';
 
-describe('PageHeader', () => {
+describe('ProductCard', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<PageHeader />);
+    const { baseElement } = render(<ProductCard />);
     expect(baseElement).toBeTruthy();
   });
 });
