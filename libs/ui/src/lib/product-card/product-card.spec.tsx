@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Ui from './ui';
+import ProductCard from './product-card';
 
-describe('Ui', () => {
+describe('ProductCard', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Ui />);
+    const { baseElement } = render(<ProductCard />);
     expect(baseElement).toBeTruthy();
   });
 });
