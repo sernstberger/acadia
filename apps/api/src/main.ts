@@ -3,25 +3,36 @@
  * This is only a minimal backend to get started.
  */
 
+import { Product } from '@acadia/types';
 import * as express from 'express';
 
 const app = express();
 
-const products = [
-  { id: '1' },
-  { id: '2' },
-  { id: '3' },
-  { id: '4' },
-  { id: '5' },
-  { id: '6' },
-  { id: '7' },
-  { id: '8' },
-  { id: '9' },
-  { id: '10' },
+const products: Product[] = [
+  {
+    id: '1',
+    title: 'Lizard',
+    description:
+      'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    price: 1,
+  },
+  {
+    id: '2',
+    title: 'Snake',
+    description:
+      'Snakes are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    price: 2,
+  },
 ];
 
 app.get('/api', (req, res) => {
   res.send({ products });
+});
+
+app.get('/api/:id', (req, res) => {
+  const product = products.find((x) => x.id === req.params.id);
+
+  res.send({ product });
 });
 
 const port = process.env.port || 3333;

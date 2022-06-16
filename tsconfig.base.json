@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@acadia/types": ["libs/types/src/index.ts"],
       "@acadia/ui": ["libs/ui/src/index.ts"]
     }
   },

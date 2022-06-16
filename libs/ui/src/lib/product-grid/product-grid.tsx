@@ -1,9 +1,6 @@
+import { Product } from '@acadia/types';
 import { ProductCard } from '@acadia/ui';
 import { Grid } from '@mui/material';
-
-interface Product {
-  id: string;
-}
 
 export interface ProductGridProps {
   products: Product[];
@@ -12,13 +9,14 @@ export interface ProductGridProps {
 export function ProductGrid({ products }: ProductGridProps) {
   return (
     <Grid container spacing={2}>
-      {products.map((product) => {
+      {products.map(({ id, title, description, price }: Product) => {
         return (
-          <Grid item xs={4} key={product.id}>
+          <Grid item xs={4} key={id}>
             <ProductCard
-              title="Lizard"
-              description="Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"
-              price={100}
+              id={id}
+              title={title}
+              description={description}
+              price={price}
             />
           </Grid>
         );

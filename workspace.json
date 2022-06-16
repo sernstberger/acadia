@@ -5,6 +5,7 @@
     "api": "apps/api",
     "store": "apps/store",
     "store-e2e": "apps/store-e2e",
+    "types": "libs/types",
     "ui": "libs/ui"
   }
 }

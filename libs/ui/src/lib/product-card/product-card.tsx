@@ -5,18 +5,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { Product } from '@acadia/types';
 
-export interface ProductCardProps {
-  title: React.ReactNode;
-  description?: React.ReactNode;
-  price: number;
-}
-
-export function ProductCard({
-  title,
-  description = null,
-  price,
-}: ProductCardProps) {
+export function ProductCard({ title, description = null, price, id }: Product) {
   return (
     <Card
       elevation={0}
@@ -25,7 +16,7 @@ export function ProductCard({
         borderRadius: 0,
       }}
     >
-      <CardActionArea component={Link} to={`products/1`}>
+      <CardActionArea component={Link} to={`products/${id}`}>
         <CardMedia
           component="img"
           height="140"
