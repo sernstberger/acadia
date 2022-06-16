@@ -15,7 +15,7 @@ export function Search({}: SearchProps) {
         alignItems: 'center',
         width: 400,
         borderRadius: 0,
-        border: (theme) => `2px solid ${theme.palette.common.black}`,
+        border: (theme) => `1px solid ${theme.palette.common.black}`,
       }}
       elevation={0}
     >

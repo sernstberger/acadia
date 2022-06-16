@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export interface ProductCardProps {
   title: React.ReactNode;
@@ -20,11 +21,11 @@ export function ProductCard({
     <Card
       elevation={0}
       sx={{
-        border: (theme) => `2px solid ${theme.palette.common.black}`,
+        border: (theme) => `1px solid ${theme.palette.common.black}`,
         borderRadius: 0,
       }}
     >
-      <CardActionArea>
+      <CardActionArea component={Link} to={`products/1`}>
         <CardMedia
           component="img"
           height="140"
