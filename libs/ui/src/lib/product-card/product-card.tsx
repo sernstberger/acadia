@@ -7,7 +7,13 @@ import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { Product } from '@acadia/types';
 
-export function ProductCard({ title, description = null, price, id }: Product) {
+export function ProductCard({
+  title,
+  description = null,
+  price,
+  id,
+  image,
+}: Product) {
   return (
     <Card
       elevation={0}
@@ -20,7 +26,7 @@ export function ProductCard({ title, description = null, price, id }: Product) {
         <CardMedia
           component="img"
           height="140"
-          image="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
+          image={image}
           alt="green iguana"
         />
         <CardContent>

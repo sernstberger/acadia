@@ -13,7 +13,13 @@ export const Product = () => {
     });
   }, []);
 
-  return <div>{product?.title}</div>;
+  return (
+    <div>
+      <img src={product?.image} alt="product" width="100%" />
+
+      {product?.title}
+    </div>
+  );
 };
 
 export default Product;

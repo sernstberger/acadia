@@ -5,4 +5,5 @@ export interface Product {
   title: React.ReactNode;
   description?: React.ReactNode;
   price: number;
+  image: string;
 }

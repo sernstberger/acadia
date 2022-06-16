@@ -9,7 +9,7 @@ export interface ProductGridProps {
 export function ProductGrid({ products }: ProductGridProps) {
   return (
     <Grid container spacing={2}>
-      {products.map(({ id, title, description, price }: Product) => {
+      {products.map(({ id, title, description, price, image }: Product) => {
         return (
           <Grid item xs={4} key={id}>
             <ProductCard
@@ -17,6 +17,7 @@ export function ProductGrid({ products }: ProductGridProps) {
               title={title}
               description={description}
               price={price}
+              image={image}
             />
           </Grid>
         );
