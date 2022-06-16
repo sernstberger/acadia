@@ -1,29 +1,15 @@
 import { ProductGrid } from '@acadia/ui';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Dashboard = () => {
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     axios.get('/api').then((res) => {
-      console.log(res.data);
+      setProducts(res.data.products);
     });
   }, []);
-  return (
-    <ProductGrid
-      products={[
-        { id: '1' },
-        { id: '2' },
-        { id: '3' },
-        { id: '4' },
-        { id: '5' },
-        { id: '6' },
-        { id: '7' },
-        { id: '8' },
-        { id: '9' },
-        { id: '10' },
-      ]}
-    />
-  );
+  return <ProductGrid products={products} />;
 };
 
 export default Dashboard;
