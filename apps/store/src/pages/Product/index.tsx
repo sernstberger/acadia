@@ -1,4 +1,5 @@
 import { Product as ProductProps } from '@acadia/types';
+import { Typography } from '@mui/material';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -17,7 +18,8 @@ export const Product = () => {
     <div>
       <img src={product?.image} alt="product" width="100%" />
 
-      {product?.title}
+      <Typography variant="h1">{product?.title}</Typography>
+      <Typography>{product?.description}</Typography>
     </div>
   );
 };
